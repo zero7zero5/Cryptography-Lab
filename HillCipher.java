@@ -3,11 +3,13 @@ import java.util.Scanner;
 public class HillCipher {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
-        System.out.print("Enter a 2x2 key matrix (space-separated values, row by row): ");
+        System.out.print("Enter Key of 4 Letters :");
+        String k = scanner.next();
+        int flag = 0;
         int[][] key = new int[2][2];
         for (int i = 0; i < 2; i++) {
             for (int j = 0; j < 2; j++) {
-                key[i][j] = scanner.nextInt();
+                key[i][j] = k.charAt(flag++)-'A';
             }
         }
         System.out.print("Enter the plaintext (uppercase letters, no spaces): ");
@@ -46,13 +48,11 @@ public class HillCipher {
                 break;
             }
         }
-
         if (detInverse == -1) {
             System.out.println("Key is not invertible.");
             return "";
         }
-
-        int keyInverse[][] = new int[2][2];
+        int[][] keyInverse = new int[2][2];
         keyInverse[0][0] = (key[1][1] * detInverse) % 26;
         keyInverse[0][1] = (26 - key[0][1]) * detInverse % 26;
         keyInverse[1][0] = (26 - key[1][0]) * detInverse % 26;
@@ -63,14 +63,11 @@ public class HillCipher {
             for (int j = 0; j < 2; j++) {
                 block[j] = ciphertext.charAt(i + j) - 'A';
             }
-
             int decryptedChar1 = (keyInverse[0][0] * block[0] + keyInverse[0][1] * block[1] + 26) % 26;
             int decryptedChar2 = (keyInverse[1][0] * block[0] + keyInverse[1][1] * block[1] + 26) % 26;
-
             plaintext.append((char) (decryptedChar1 + 'A'));
             plaintext.append((char) (decryptedChar2 + 'A'));
         }
-
         return plaintext.toString();
     }
 

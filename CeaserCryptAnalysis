@@ -1,0 +1,58 @@
+package cryptography;
+import java.util.*;
+public class CeaserAttack {
+    final static String lowerCase ="abcdefghijklmnopqrstuvwxyz";
+    final static String upperCase = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+    
+  public static void main(String[] args) {
+        Scanner scan = new Scanner(System.in);
+        System.out.println("Enter the String :");
+        String data = scan.nextLine();
+        System.out.println("Enter the Key :");
+        int key = scan.nextInt();
+        System.out.println("Encrypted :"+encrypt(data,key));
+        
+        
+        for(int i=1;i<27;i++){
+            System.out.println("KEY: " + i + " " + "TEXT: "+decrypt(encrypt(data,key), i));
+        }
+    }
+    public static String encrypt(String input,int key){
+        StringBuilder str = new StringBuilder();
+        for(char ch:input.toCharArray()){
+            if(Character.isLowerCase(ch)){
+                int index = (lowerCase.indexOf(ch)+key)%26;
+                str.append(lowerCase.charAt(index));
+            }
+            else if(ch==' ') {
+                str.append(' ');
+            }
+            else {
+                int index = (upperCase.indexOf(ch)+key)%26;
+                str.append(upperCase.charAt(index));
+            }
+        }
+        return str.toString();
+    }
+     public static String decrypt(String input,int key){
+        StringBuilder str = new StringBuilder();
+        for(char ch:input.toCharArray()){
+            if(Character.isLowerCase(ch)){
+                int index = (lowerCase.indexOf(ch)-key)%26;
+                if(index<0) index=26+index;
+                str.append(lowerCase.charAt(index));
+            }
+            
+            else if(ch==' ') {
+                str.append(' ');
+            }
+            else {
+                int index = (upperCase.indexOf(ch)-key)%26;
+                if(index<0) index=26+index;
+                str.append(upperCase.charAt(index));
+            }
+        }
+        return str.toString();
+    }
+    
+}

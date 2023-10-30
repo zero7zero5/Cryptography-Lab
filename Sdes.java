@@ -73,10 +73,6 @@ public class Sdes {
 		for (int i = 0; i < 8; i++)
 			System.out.print(key2[i] + " ");
 	}
-
-	// this function is use full for shifting(circular) the
-	//array n position towards left
-
 	int[] shift(int[] ar, int n)
 	{
 		while (n > 0) {
@@ -89,11 +85,6 @@ public class Sdes {
 		}
 		return ar;
 	}
-
-	// this is main encryption function takes plain text as
-	//input	 uses another functions and returns the array of
-	//cipher text
-
 	int[] encryption(int[] plaintext)
 	{
 		int[] arr = new int[8];
@@ -115,9 +106,6 @@ public class Sdes {
 
 		return ciphertext;
 	}
-
-	// decimal to binary string 0-3
-
 	String binary_(int val)
 	{
 		if (val == 0)
@@ -129,13 +117,6 @@ public class Sdes {
 		else
 			return "11";
 	}
-
-	// this function is doing core things like expansion
-	// then xor with desired key then S0 and S1
-	//substitution	 P4 permutation and again xor	 we have used
-	//this function 2 times(key-1 and key-2) during
-	//encryption and	 2 times(key-2 and key-1) during
-	//decryption
 
 	int[] function_(int[] ar, int[] key_)
 	{
@@ -201,9 +182,6 @@ public class Sdes {
 		}
 		return output;
 	}
-
-	// this function swaps the nibble of size n(4)
-
 	int[] swap(int[] array, int n)
 	{
 		int[] l = new int[n];
@@ -222,12 +200,6 @@ public class Sdes {
 
 		return output;
 	}
-
-	// this is main decryption function
-	// here we have used all previously defined function
-	// it takes cipher text as input and returns the array
-	//of	 decrypted text
-
 	int[] decryption(int[] ar)
 	{
 		int[] arr = new int[8];
@@ -260,9 +232,7 @@ public class Sdes {
                 for(int i=0;i<10;i++){
                     key[i]=scan.nextInt();
                 }
-		obj.key_generation(key); // call to key generation
-							// function
-                                                            
+		obj.key_generation(key);                    
 		int[] plaintext=new int[8];
                 System.out.print("Enter the Plain Text :");
                 for(int i=0;i<8;i++){
@@ -271,16 +241,14 @@ public class Sdes {
 
 		System.out.println();
 		System.out.println("Your plain Text is :");
-		for (int i = 0; i < 8; i++) // printing the
-									// plaintext
+		for (int i = 0; i < 8; i++) 						
 			System.out.print(plaintext[i] + " ");
 
 		int[] ciphertext = obj.encryption(plaintext);
 
 		System.out.println();
 		System.out.println(
-			"Your cipher Text is :"); // printing the cipher
-									// text
+			"Your cipher Text is :"); 
 		for (int i = 0; i < 8; i++)
 			System.out.print(ciphertext[i] + " ");
 
@@ -288,11 +256,8 @@ public class Sdes {
 
 		System.out.println();
 		System.out.println(
-			"Your decrypted Text is :"); // printing the
-										// decrypted text
+			"Your decrypted Text is :"); 
 		for (int i = 0; i < 8; i++)
 			System.out.print(decrypted[i] + " ");
 	}
 }
-
-//Omkar Varhadi

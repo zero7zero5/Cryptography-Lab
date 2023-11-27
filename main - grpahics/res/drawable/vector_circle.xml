@@ -1,0 +1,16 @@
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:height="200dp"
+    android:width="200dp"
+    android:viewportHeight="600"
+    android:viewportWidth="600">
+        <group
+        android:name="circleGroup"
+        android:pivotX="300.0"
+        android:pivotY="300.0"
+        android:rotation="0.0">
+        <path
+            android:name="circle"
+            android:fillColor="#32a852"
+            android:pathData="M350,100 a50,50 0 1,0 100,0 a50,50 0 1,0 -100,0" /> <!-- Larger circle with a radius of 50 -->
+        </group>
+</vector>

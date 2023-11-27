@@ -1,0 +1,17 @@
+
+<!--<animated-vector xmlns:android="http://schemas.android.com/apk/res/android"-->
+<!--android:drawable="@drawable/vector_circle" >-->
+<!--<target-->
+<!--    android:name="circleGroup"-->
+<!--    android:animation="@animator/path_morph" />-->
+<!--</animated-vector>-->
+
+
+<animated-vector
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:drawable="@drawable/vector_circle">
+    <target
+        android:animation="@animator/rotation"
+        android:name="@animator/rotation"/>
+
+</animated-vector>

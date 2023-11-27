@@ -1,0 +1,16 @@
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:height="200dp"
+    android:width="200dp"
+    android:viewportHeight="600"
+    android:viewportWidth="600">
+    <group
+        android:name="rotationSquare"
+        android:pivotX="300.0"
+        android:pivotY="300.0"
+        android:rotation="45.0" > <!-- Set rotation to 0 to keep it as a square -->
+        <path
+            android:name="square"
+            android:fillColor="#96a832"
+            android:pathData="M300,0 L400,0 L400,100 L300,100 Z" /> <!-- Defines a square -->
+    </group>
+</vector>
